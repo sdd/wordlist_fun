@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sc0ttyd/wordlist_fun/issues"
   },
-  "homepage": "https://github.com/sc0ttyd/wordlist_fun"
+  "homepage": "https://github.com/sc0ttyd/wordlist_fun",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  }
 }
