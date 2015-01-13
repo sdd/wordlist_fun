@@ -1,0 +1,19 @@
+{
+  "name": "wordlist_fun",
+  "version": "0.0.1",
+  "description": "Messing around with word lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sc0ttyd/wordlist_fun.git"
+  },
+  "author": "Scott Donnelly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sc0ttyd/wordlist_fun/issues"
+  },
+  "homepage": "https://github.com/sc0ttyd/wordlist_fun"
+}
