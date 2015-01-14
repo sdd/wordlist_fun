@@ -1,9 +1,9 @@
 {
-  "name": "4space",
-  "version": "0.0.0",
-  "private": true,
+  "name": "wordlist_fun",
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node words.js"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
