@@ -1,18 +1,33 @@
-var	_            = require('lodash'),
+var	_            = require('lodash-contrib'),
 	readWordList = require('./readWordList'),
 	siblingGraph = require('./siblingGraph'),
 	longest = require('./algorithms/longest/leastSiblingsFirst');
 
-readWordList('en.txt', 4).then(siblingGraph.create).then(function(words) {
+var longestChain = { chain: ['NOTHING'] };
 
-	words = _.sortBy(words, function(word) { return 0 - word.siblings.length; });
-	var wordmap = {};
-	_.each(words, function(word) { wordmap[word.word] = word; });
+var search = function(index) {
+	readWordList('en.txt', 4).then(siblingGraph.create).then(function(words) {
 
-	var superChain = longest([wordmap.test]);
+		words = _.sortBy(words, function(word) { return 0 - word.siblings.length; });
+		var wordsLength = words.length;
+		var currWord = words[index].word;
 
-	process.stdout.write('\n\rLongest chain: ' + superChain.chain.length + '\n\r');
-	console.log(superChain.chain.join(', '));
-	console.log('REMAINDER: ' + superChain.remainder.length);
-	console.log(superChain.remainder.join(', '));
-});
+		var result = longest([words[index]]);
+
+		process.stdout.write('\rWord: ' + currWord + ' (' + index + ') ' + ' chain: ' + result.chain.length + '. Longest so far is ' + longestChain.chain[0] + ' with ' + longestChain.chain.length + '\n\r');
+
+		if (result.chain.length > longestChain.chain.length) { longestChain = _.cloneDeep(result); }
+
+		if (++index >= wordsLength) {
+			console.log('\n\rLongest chain: ' + longestChain.chain.length + '\n\r');
+			console.log(longestChain.chain.join(', '));
+			console.log('REMAINDER: ' + longestChain.remainder.length);
+			console.log(longestChain.remainder.join(', '));
+			return longestChain;
+		}
+
+		search(index);
+	});
+};
+
+search(0);
