@@ -28,7 +28,7 @@ var longest = function(chain, blackList, maxChain) {
 		_.times(2, function() { blackList.push(chain.pop().word); });
 		last = _.last(chain);
 
-		if (!last) {
+		if (!last || chainWords.length < maxChain.length * 0.9) {
 			blackList = _.difference(_.unique(blackList), maxChain);
 			return _.done({ chain: maxChain, remainder: blackList });
 		}
