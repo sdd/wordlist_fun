@@ -6,7 +6,7 @@ var	_            = require('lodash'),
 	siblingGraph = require('./siblingGraph');
 require('colors');
 
-var longest = require('./algorithms/longest/alternatingMostLeastSiblings');
+var longest = require('./algorithms/longest/leastSiblingsFirst');
 
 var filename = {
 	wordList: 'en.txt',
@@ -31,8 +31,11 @@ fs.existsAsync(filename.siblingGraph).then(function(exists) {
 
 	var superChain = longest([wordmap.amok]);
 
-	process.stdout.write('\n\rLongest chain: ' + superChain.length + '\n\r');
-	_.each(superChain, function(entry) { process.stdout.write(entry.word + ', '); });
+	process.stdout.write('\n\rLongest chain: ' + superChain.chain.length + '\n\r');
+	console.log(superChain.chain.join(', '));
+
+	console.log('REMAINDER: ' + superChain.remainder.length);
+	console.log(superChain.remainder.join(', '));
 
 }).catch(function(err) {
 	process.stdout.write('\r\n');
