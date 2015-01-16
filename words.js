@@ -5,6 +5,15 @@ var	_            = require('lodash-contrib'),
 
 var longestChain = { chain: ['NOTHING'] };
 
+process.on('SIGINT', function() {
+	console.log('\n\rLongest chain: ' + longestChain.chain.length + '\n\r');
+	console.log(longestChain.chain.join(', '));
+	console.log('REMAINDER: ' + longestChain.remainder.length);
+	console.log(longestChain.remainder.join(', '));
+
+	process.exit();
+});
+
 var search = function(index) {
 	readWordList('en.txt', 4).then(siblingGraph.create).then(function(words) {
 
