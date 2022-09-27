@@ -16,7 +16,7 @@
     "express": "~4.9.0",
     "jade": "~1.6.0",
     "line-by-line": "^0.1.1",
-    "lodash": "4",
+    "lodash": "4.17.21",
     "lodash-contrib": "^241.4.14",
     "morgan": "~1.9.1",
     "node-compass": "0.2.3",
