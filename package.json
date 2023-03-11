@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "bluebird": "2.11.0",
-    "body-parser": "1.8.4",
+    "body-parser": "1.20.2",
     "circular-json": "0.1.6",
     "color": "0.7.3",
     "colors": "1.4.0",
