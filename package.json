@@ -6,7 +6,7 @@
     "start": "node words.js"
   },
   "dependencies": {
-    "bluebird": "2.11.0",
+    "bluebird": "3.7.2",
     "body-parser": "1.8.4",
     "circular-json": "0.1.6",
     "color": "0.7.3",
