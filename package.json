@@ -22,7 +22,7 @@
     "node-compass": "0.2.3",
     "q": "1.5.1",
     "readline": "0.0.4",
-    "serve-favicon": "2.1.7",
+    "serve-favicon": "2.5.1",
     "stream": "0.0.1"
   }
 }
